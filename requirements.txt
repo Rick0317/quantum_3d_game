@@ -102,7 +102,7 @@ numpy==1.22.4
 oauthlib==3.2.0
 opt-einsum==3.3.0
 packaging==21.3
-Panda3D==1.10.11.post1
+Panda3D==1.10.11
 panda3d-gltf==0.13
 panda3d-simplepbr==0.10
 pandas==1.4.2
