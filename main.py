@@ -8,7 +8,7 @@ from gates import Gate, Gate_Block
 from static_objects import Wall, Axis
 from inventory import Inventory, ItemBar
 from panda3d.core import AudioSound
-from math import sqrt, atan
+from transforms import h_transform, s_transform, x_transform, z_transform, t_transform
 
 app = Ursina()
 t = 0
@@ -59,77 +59,21 @@ def twitter_share():
     webbrowser.open('https://twitter.com/share?ref_src=twsrc%5Etfw')
 
 # gate transformations
-def h_transform():
-    relative_x = quantum_state.x - 0
-    relative_y = quantum_state.y - 5
-    relative_z = quantum_state.z - 10
 
-    pointer_x = relative_x * 2/5
-    pointer_y = relative_y * 2/5
-    pointer_z = relative_z * 2/5
+def h_transform2():
+    h_transform(quantum_state)
 
-    divisor = sqrt((sqrt(pointer_y+1) - pointer_z)**2 + pointer_x**2)
-    if divisor != 0:
-        pointer_x2 = (- sqrt(2)) * pointer_x * (sqrt(pointer_y + 1) + pointer_z )/ divisor
-        pointer_y2 = divisor**2 / 2 - 1
-        pointer_z2 = (-1/sqrt(2)) * (pointer_y+1-pointer_x**2-pointer_z**2 + 2*pointer_z * sqrt(pointer_y+1)) / divisor 
-    else:
-        pointer_x2 = (-1/sqrt(2))*(sqrt(pointer_y+1)+pointer_z)
-        pointer_y2 = - 1
-        pointer_z2 = (-1/sqrt(2)) * pointer_x
-        
-    quantum_state.x = pointer_x2*5/2  
-    quantum_state.y = pointer_y2*5/2 + 5
-    quantum_state.z = pointer_z2*5/2 + 10
-    if pointer_y - pointer_y2 != 0:
-        quantum_state.rotation_x = atan((pointer_z - pointer_z2)/ (pointer_y - pointer_y2))
-    if pointer_z - pointer_z2 != 0:
-        quantum_state.rotation_y = atan((pointer_x - pointer_x2)/ (pointer_z - pointer_z2))
-    if pointer_x - pointer_x2 != 0:
-        quantum_state.rotation_z = atan((pointer_y - pointer_y2)/ (pointer_x - pointer_x2))
+def x_transform2():
+    x_transform(quantum_state)
 
-
-def x_transform():
-    relative_x = quantum_state.x - 0
-    relative_y = quantum_state.y - 5
-    relative_z = quantum_state.z - 10
-
-    pointer_x = relative_x * 2/5
-    pointer_y = relative_y * 2/5
-    pointer_z = relative_z * 2/5
-
-    pointer_x2 = pointer_x
-    pointer_y2 = -pointer_y
-    pointer_z2 = -pointer_z
-
-    quantum_state.x = pointer_x2 * 5/2
-    quantum_state.y = pointer_y2 * 5/2 + 5
-    quantum_state.z = pointer_z2 * 5/2 + 10
-
-
-def z_transform():
-    relative_x = quantum_state.x - 0
-    relative_y = quantum_state.y - 5
-    relative_z = quantum_state.z - 10
-
-    pointer_x = relative_x * 2/5
-    pointer_y = relative_y * 2/5
-    pointer_z = relative_z * 2/5
-
-    pointer_x2 = -pointer_x
-    pointer_y2 = -pointer_y
-    pointer_z2 = pointer_z
-
-    quantum_state.x = pointer_x2 * 5/2
-    quantum_state.y = pointer_y2 * 5/2 + 5
-    quantum_state.z = pointer_z2 * 5/2 + 10
+def z_transform2():
+    z_transform(quantum_state)
     
+def s_transform2():
+    s_transform(quantum_state)
 
-def s_transform():
-    pass
-
-def t_transform():
-    pass
+def t_transform2():
+    t_transform(quantum_state)
 
 def set_back():
     quantum_state.rotation_z = 270
@@ -160,16 +104,21 @@ t_gate_block = Gate_Block(position=(4, 0.5, 2.5))
 twitter = Gate(position=(-5, 1, -0.5), icon="assets/twitter.png", rotation=(0,0,0))
 twitter_block = Gate_Block(position=(-5, 0.5, 0))
 
-h_gate.on_click = h_transform
-h_gate2.on_click = h_transform
+h_gate.on_click = h_transform2
+h_gate2.on_click = h_transform2
 twitter.on_click = twitter_share
 
-x_gate.on_click = x_transform
-x_gate2.on_click = x_transform
+x_gate.on_click = x_transform2
+x_gate2.on_click = x_transform2
 
-z_gate.on_click = z_transform
-z_gate2.on_click = z_transform
+z_gate.on_click = z_transform2
+z_gate2.on_click = z_transform2
 
+s_gate.on_click = s_transform2
+s_gate2.on_click = s_transform2
+
+t_gate.on_click = t_transform2
+t_gate2.on_click = t_transform2
 
 item_bar = ItemBar()
 
