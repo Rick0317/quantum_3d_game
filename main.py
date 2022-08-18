@@ -6,7 +6,7 @@ from ursina.shaders import lit_with_shadows_shader
 import webbrowser
 from gates import Gate, Gate_Block
 from static_objects import Wall, Axis
-from inventory import Inventory, ItemBar
+from inventory import ItemBar
 from panda3d.core import AudioSound
 from transforms import h_transform, s_transform, x_transform, z_transform, t_transform
 
