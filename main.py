@@ -24,6 +24,7 @@ player = FirstPersonController(z=-10, color=color.orange, origin_y=-.5, speed=14
 player.collider = BoxCollider(player, Vec3(0,1,0), Vec3(1,2,1))
 player.cursor.visible=True
 window.fps_counter.enabled=True
+window.windowed_size = 1
 
 # Each axis
 x_axis = Axis(position=(5, 5, 10), rotation=(0,0,0))
