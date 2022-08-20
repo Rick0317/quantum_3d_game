@@ -50,24 +50,24 @@ bs_explanation = Text(text="BlochSphere", position=(-3, 18, 10), scale=100, pare
 quantum_state = Entity(model="arrow", scale=5, color=color.red, rotation_z = 270, position=(0, 7.5, 10))
 
 video1 = 'assets/Qiskit_video_example.mp4'
-video_player1 = Entity(model='quad', parent=camera.ui, scale=(0.9, 0.6), texture=video1, position=(0.2,0.2), enabled=False)
+video_player1 = Entity(model='quad', parent=camera.ui, scale=(1.5, 1), texture=video1, position=(0,0), enabled=False)
 video_sound1=loader.loadSfx("assets/Qiskit_sound_example.mp3")
 
 video2 = 'assets/Qiskit_video_example2.mp4'
-video_player2 = Entity(model='quad', parent=camera.ui, scale=(0.9, 0.6), texture=video2, position=(0.2,0.2), enabled=False)
+video_player2 = Entity(model='quad', parent=camera.ui, scale=(1.5, 1), texture=video2, position=(0,0), enabled=False)
 video_sound2=loader.loadSfx("assets/Qiskit_video_example2.mp3")
 
-video3 = 'assets/Qiskit_video_example3.mov'
-video_player3 = Entity(model='quad', parent=camera.ui, scale=(0.9, 0.6), texture=video3, position=(0.2,0.2), enabled=False)
-video_sound3=loader.loadSfx("assets/Qiskit_sound_example.mp3")
+video3 = 'assets/Qiskit_video_example3.mp4'
+video_player3 = Entity(model='quad', parent=camera.ui, scale=(1.5, 1), texture=video3, position=(0,0), enabled=False)
+video_sound3=loader.loadSfx("assets/Qiskit_video_example3.mp3")
 
-video4 = 'assets/Qiskit_video_example4.mov'
-video_player4 = Entity(model='quad', parent=camera.ui, scale=(0.9, 0.6), texture=video4, position=(0.2,0.2), enabled=False)
-video_sound4=loader.loadSfx("assets/Qiskit_sound_example.mp3")
+video4 = 'assets/Qiskit_video_example4.mp4'
+video_player4 = Entity(model='quad', parent=camera.ui, scale=(1.5, 1), texture=video4, position=(0,0), enabled=False)
+video_sound4=loader.loadSfx("assets/Qiskit_video_example4.mp3")
 
-video5 = 'assets/Qiskit_video_example5.mov'
-video_player5 = Entity(model='quad', parent=camera.ui, scale=(0.9, 0.6), texture=video5, position=(0.2,0.2), enabled=False)
-video_sound5=loader.loadSfx("assets/Qiskit_sound_example.mp3")
+video5 = 'assets/Qiskit_video_example5.mp4'
+video_player5 = Entity(model='quad', parent=camera.ui, scale=(1.5, 1), texture=video5, position=(0,0), enabled=False)
+video_sound5=loader.loadSfx("assets/Qiskit_video_example5.mp3")
 
 def input(key):
     if key == "1":
