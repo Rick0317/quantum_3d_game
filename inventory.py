@@ -1,35 +1,15 @@
 from ursina import *
 
 class Inventory(Entity):
-  def __init__(self):
+  def __init__(self, texture="assets/tutorial.jpg"):
     super().__init__(
       parent = camera.ui,                                         
       model = 'quad',
-      scale = (.8, .5),                                           
-      origin = (-.5, .5),                                         
-      position = (-.3,.4),                                        
-      texture = 'white_cube',                                     
-      texture_scale = (5,8),                                      
-      color = color.dark_gray 
+      scale = (1.8, 1),                                                                              
+      position = (0,0),   
+      texture=texture,                                                                         
+      color = color.white,
     )
-    self.item_parent = Entity(parent=self, scale=(1/5,1/8)) 
-
-  def append(self, item):                                             
-        Button(                                                         
-          parent = self.item_parent,                             
-          model = 'quad',                                             
-          origin = (-.5,.5),                                          
-          color = color.random_color(),  
-          position = self.find_free_spot(),                             
-          z = -.1                                                     
-        )
-  def find_free_spot(self):                                                      
-      taken_spots = [(int(e.x), int(e.y)) for e in self.item_parent.children]    
-      for y in range(8):                                                         
-          for x in range(5):                                                     
-              if not (x,-y) in taken_spots:                                      
-                  return (x,-y)        
-
 
 class ItemBar(Entity):
   def __init__(self):

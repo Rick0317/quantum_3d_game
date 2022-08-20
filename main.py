@@ -6,11 +6,12 @@ from ursina.shaders import lit_with_shadows_shader
 import webbrowser
 from gates import Gate, Gate_Block
 from static_objects import Wall, Axis
-from inventory import ItemBar
+from inventory import Inventory, ItemBar
 from panda3d.core import AudioSound
 from transforms import h_transform, s_transform, x_transform, z_transform, t_transform
 
 app = Ursina()
+inventory = Inventory()
 t = 0
 Sky()
 
@@ -31,6 +32,12 @@ x_axis = Axis(position=(5, 5, 10), rotation=(0,0,0))
 y_axis = Axis(position=(0, 10, 10), rotation=(0,0,270))
 z_axis = Axis(position=(0, 5, 5), rotation=(0,90,0))
 
+zero_vector = Text(text="|0>", parent=scene, position=(-1, 11.5, 10), scale=50)
+one_vector = Text(text="|1>", parent=scene, position=(-1, 1, 10), scale=50)
+x_letter = Text(text="x-axis", parent=scene, position=(0, 6, 0), scale=50, rotation=(0, 270, 0))
+y_letter = Text(text="y-axis", parent=scene, position=(0, 16, 10), scale=50, rotation=(0,0, 90))
+z_letter = Text(text="z-axis", parent=scene, position=(6, 6, 10), scale=50)
+
 #Walls
 wall_1 = Wall(position=(0,0,32), scale=(64, 10, 1))
 wall_2 = Wall(position=(0, 0, -32), scale=(64, 10, 1))
@@ -39,21 +46,65 @@ wall_4 = Wall(position=(-32, 0, 0), scale=(1, 10, 63))
 
 # BlochSphere
 bloch_sphere = Entity(model="sphere", collider="box", position = (0, 5, 10), scale=10, color=color.rgba(255,255,255,64))
-bs_explanation = Text(text="BlochSphere", position=(0, 13, 10), scale=50, parent=scene)
+bs_explanation = Text(text="BlochSphere", position=(-3, 18, 10), scale=100, parent=scene)
 quantum_state = Entity(model="arrow", scale=5, color=color.red, rotation_z = 270, position=(0, 7.5, 10))
 
-video = 'assets/Qiskit_video_example.mp4'
-video_player = Entity(model='quad', parent=camera.ui, scale=(0.9, 0.6), texture=video, position=(0.2,0.2), enabled=False)
-video_sound=loader.loadSfx("assets/Qiskit_sound_example.mp3")
+video1 = 'assets/Qiskit_video_example.mp4'
+video_player1 = Entity(model='quad', parent=camera.ui, scale=(0.9, 0.6), texture=video1, position=(0.2,0.2), enabled=False)
+video_sound1=loader.loadSfx("assets/Qiskit_sound_example.mp3")
+
+video2 = 'assets/Qiskit_video_example2.mp4'
+video_player2 = Entity(model='quad', parent=camera.ui, scale=(0.9, 0.6), texture=video2, position=(0.2,0.2), enabled=False)
+video_sound2=loader.loadSfx("assets/Qiskit_video_example2.mp3")
+
+video3 = 'assets/Qiskit_video_example3.mov'
+video_player3 = Entity(model='quad', parent=camera.ui, scale=(0.9, 0.6), texture=video3, position=(0.2,0.2), enabled=False)
+video_sound3=loader.loadSfx("assets/Qiskit_sound_example.mp3")
+
+video4 = 'assets/Qiskit_video_example4.mov'
+video_player4 = Entity(model='quad', parent=camera.ui, scale=(0.9, 0.6), texture=video4, position=(0.2,0.2), enabled=False)
+video_sound4=loader.loadSfx("assets/Qiskit_sound_example.mp3")
+
+video5 = 'assets/Qiskit_video_example5.mov'
+video_player5 = Entity(model='quad', parent=camera.ui, scale=(0.9, 0.6), texture=video5, position=(0.2,0.2), enabled=False)
+video_sound5=loader.loadSfx("assets/Qiskit_sound_example.mp3")
 
 def input(key):
     if key == "1":
-        video_player.enabled = True
-        video_player.texture.synchronizeTo(video_sound)
-        video_sound.play()
+        video_player1.enabled = True
+        video_player1.texture.synchronizeTo(video_sound1)
+        video_sound1.play()
+    if key == "2":
+        video_player2.enabled = True
+        video_player2.texture.synchronizeTo(video_sound2)
+        video_sound2.play()
+    if key == "3":
+        video_player3.enabled = True
+        video_player3.texture.synchronizeTo(video_sound3)
+        video_sound3.play()
+    if key == "4":
+        video_player4.enabled = True
+        video_player4.texture.synchronizeTo(video_sound4)
+        video_sound4.play()
+    if key == "5":
+        video_player5.enabled = True
+        video_player5.texture.synchronizeTo(video_sound5)
+        video_sound5.play()
     if key=="n":
-        video_player.enabled=False
-        video_sound.stop()
+        video_player1.enabled=False
+        video_sound1.stop()
+        video_player2.enabled=False
+        video_sound2.stop()
+        video_player3.enabled=False
+        video_sound3.stop()
+        video_player4.enabled=False
+        video_sound4.stop()
+        video_player5.enabled=False
+        video_sound5.stop()
+    if key=="m":
+        inventory.enabled = False
+    if key=="l":
+        inventory.enabled = True
 
 # Share the app on twitter
 def twitter_share():
