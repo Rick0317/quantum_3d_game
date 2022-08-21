@@ -35,9 +35,9 @@ def h_transform(quantum_state):
         quantum_state.rotation_x = atan((quantum_state.z - 10)/(quantum_state.y - 5))
     else:
         if quantum_state.z == 12.5:
-            quantum_state.rotation_x = 90
-        else:
             quantum_state.rotation_x = 270
+        else:
+            quantum_state.rotation_x = 90
     if quantum_state.z != 10:
         quantum_state.rotation_y = atan(quantum_state.x/(quantum_state.z - 10))
     else:
@@ -70,9 +70,9 @@ def x_transform(quantum_state):
         quantum_state.rotation_x = atan((quantum_state.z - 10)/(quantum_state.y - 5))
     else:
         if quantum_state.z == 12.5:
-            quantum_state.rotation_x = 90
-        else:
             quantum_state.rotation_x = 270
+        else:
+            quantum_state.rotation_x = 90
     if quantum_state.z != 10:
         quantum_state.rotation_y = atan(quantum_state.x/(quantum_state.z - 10))
     else:
@@ -105,9 +105,9 @@ def z_transform(quantum_state):
         quantum_state.rotation_x = atan((quantum_state.z - 10)/(quantum_state.y - 5))
     else:
         if quantum_state.z == 12.5:
-            quantum_state.rotation_x = 90
-        else:
             quantum_state.rotation_x = 270
+        else:
+            quantum_state.rotation_x = 90
     if quantum_state.z != 10:
         quantum_state.rotation_y = atan(quantum_state.x/(quantum_state.z - 10))
     else:
@@ -144,9 +144,9 @@ def s_transform(quantum_state):
         quantum_state.rotation_x = atan((quantum_state.z - 10)/(quantum_state.y - 5))
     else:
         if quantum_state.z == 12.5:
-            quantum_state.rotation_x = 90
-        else:
             quantum_state.rotation_x = 270
+        else:
+            quantum_state.rotation_x = 90
     if quantum_state.z != 10:
         quantum_state.rotation_y = atan(quantum_state.x/(quantum_state.z - 10))
     else:
@@ -183,9 +183,9 @@ def t_transform(quantum_state):
         quantum_state.rotation_x = atan((quantum_state.z - 10)/(quantum_state.y - 5))
     else:
         if quantum_state.z == 12.5:
-            quantum_state.rotation_x = 90
-        else:
             quantum_state.rotation_x = 270
+        else:
+            quantum_state.rotation_x = 90
     if quantum_state.z != 10:
         quantum_state.rotation_y = atan(quantum_state.x/(quantum_state.z - 10))
     else:

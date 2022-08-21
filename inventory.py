@@ -1,11 +1,11 @@
 from ursina import *
 
 class Inventory(Entity):
-  def __init__(self, texture="assets/tutorial.jpg"):
+  def __init__(self, texture="assets/explanation_page.jpg"):
     super().__init__(
       parent = camera.ui,                                         
       model = 'quad',
-      scale = (1.8, 1),                                                                              
+      scale = (1, 1.2),                                                                              
       position = (0,0),   
       texture=texture,                                                                         
       color = color.white,
