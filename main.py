@@ -10,7 +10,12 @@ from inventory import Inventory, ItemBar
 from panda3d.core import AudioSound
 from transforms import h_transform, s_transform, x_transform, z_transform, t_transform
 
+window.title="quantum game"
 app = Ursina()
+
+window.fullscreen_resolution = (1920, 1080)
+window.fullscreen = True
+
 inventory = Inventory()
 t = 0
 Sky()
@@ -24,8 +29,6 @@ editor_camera = EditorCamera(enabled=False, ignore_paused=True)
 player = FirstPersonController(z=-10, color=color.orange, origin_y=-.5, speed=14)
 player.collider = BoxCollider(player, Vec3(0,1,0), Vec3(1,2,1))
 player.cursor.visible=True
-window.fps_counter.enabled=True
-window.windowed_size = 1
 
 # Each axis
 x_axis = Axis(position=(5, 5, 10), rotation=(0,0,0))
